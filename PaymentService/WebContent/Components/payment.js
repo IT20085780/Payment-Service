@@ -68,8 +68,8 @@ function onPaymentSaveComplete(response, status)
 		$("#alertError").show();  
 	} 
 
-	$("#hidInnovatorIDSave").val("");  
-	$("#formInnovator")[0].reset(); 
+	$("#hidpay_idSave").val("");  
+	$("#formPayment")[0].reset(); 
 } 
 
  

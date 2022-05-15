@@ -58,7 +58,7 @@
 			   <div id="alertError" class="alert alert-danger"></div>
 				
 			   <br>
-				<div id="divpaymentGrid">
+				<div id="divPaymentGrid">
 					<%
 						Payment innoObj = new Payment();
 						out.print(innoObj.readPayment());

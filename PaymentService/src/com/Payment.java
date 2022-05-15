@@ -27,7 +27,7 @@ public class Payment {
 	
 	//insert
 
-	public String insertPayment( String HolderName, String Type, String CardNo, String CVV, String Month, String Year, String Total, String Date) { 
+	public String insertPayment( String holder_name, String ctype, String card_no, String cvv, String exp_month, String exp_year, String total, String pay_date) { 
 	{   
 		String output = ""; 
 	 
@@ -46,14 +46,14 @@ public class Payment {
 	 
 			// binding values    
 			preparedStmt.setInt(1, 0); 
-			preparedStmt.setString(2, HolderName); 
-			preparedStmt.setString(3, Type); 
-			preparedStmt.setString(4, CardNo); 
-			preparedStmt.setString(5, CVV); 
-			preparedStmt.setString(6, Month); 
-			preparedStmt.setString(7, Year); 
-			preparedStmt.setString(8, Total);
-			preparedStmt.setString(9, Date);
+			preparedStmt.setString(2, holder_name); 
+			preparedStmt.setString(3, ctype); 
+			preparedStmt.setString(4, card_no); 
+			preparedStmt.setString(5, cvv); 
+			preparedStmt.setString(6, exp_month); 
+			preparedStmt.setString(7, exp_year); 
+			preparedStmt.setString(8, total);
+			preparedStmt.setString(9, pay_date);
 	 
 			
 			// execute the statement    
@@ -65,7 +65,7 @@ public class Payment {
 		}   
 		catch (Exception e)   
 		{    
-			output =  "{\"status\":\"error\", \"data\": \"Error while inserting the Innovator.\"}";  
+			output =  "{\"status\":\"error\", \"data\": \"Error while inserting the Payment.\"}";  
 			System.err.println(e.getMessage());   
 		} 
 		
@@ -165,7 +165,7 @@ public class Payment {
 	
 	//update
 	
-	public String updatePayment(String PaymentID, String HolderName, String Type, String CardNo, String CVV, String Month, String Year, String Total, String Date) { 
+	public String updatePayment(String pay_id, String holder_name, String ctype, String card_no, String cvv, String exp_month, String exp_year, String total, String pay_date) { 
 	{   
 		String output = ""; 
 	 
@@ -182,15 +182,15 @@ public class Payment {
 			PreparedStatement preparedStmt = con.prepareStatement(query); 
 	 
 			// binding values    
-			 preparedStmt.setString(1, HolderName); 
-			 preparedStmt.setString(2, Type); 
-			 preparedStmt.setString(3, CardNo); 
-			 preparedStmt.setString(4, CVV); 
-			 preparedStmt.setString(5, Month); 
-			 preparedStmt.setString(6, Year); 
-			 preparedStmt.setString(7, Total);
-			 preparedStmt.setString(8, Date);
-			 preparedStmt.setInt(9, Integer.parseInt(PaymentID));
+			preparedStmt.setString(1, holder_name); 
+			 preparedStmt.setString(2, ctype); 
+			 preparedStmt.setString(3, card_no); 
+			 preparedStmt.setString(4, cvv); 
+			 preparedStmt.setString(5, exp_month); 
+			 preparedStmt.setString(6, exp_year); 
+			 preparedStmt.setString(7, total);
+			 preparedStmt.setString(8, pay_date);
+			 preparedStmt.setInt(9, Integer.parseInt(pay_id));
 	 
 			// execute the statement    
 			preparedStmt.execute();    
